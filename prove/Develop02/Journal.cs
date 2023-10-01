@@ -7,7 +7,7 @@ public class Journal
     public string _prompt;
     public string _answerPrompt;    
 
-    public void writeOption()
+    public void WriteOption()
     {
         PromptsList pl = new PromptsList();
         
@@ -17,7 +17,7 @@ public class Journal
         _date = _theCurrentTime.ToShortDateString();        
     } 
 
-    public void readOption(Journal j, string d, string p, string a)
+    public void ReadOption(Journal j, string d, string p, string a)
     {
         j._date = d;
         j._prompt = p;

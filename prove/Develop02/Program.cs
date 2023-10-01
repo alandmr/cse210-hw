@@ -2,11 +2,11 @@ using System;
 
 class Program
 {
- static List<Journal> journalsList = new List<Journal>();
-    static Journal journal;
-    static int option = 0;
-    static string filename = "";
-    static string[] lines;
+ static List<Journal> _journalsList = new List<Journal>();
+    static Journal _journal;
+    static int _option = 0;
+    static string _fileName = "";
+    static string[] _lines;
     static void Main(string[] args)
     {
                 
@@ -20,38 +20,38 @@ class Program
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do? ");
-            option = int.Parse(Console.ReadLine());
+            _option = int.Parse(Console.ReadLine());
 
             Console.WriteLine("");
-            if (option == 1)
+            if (_option == 1)
             {
-                writeJournal();                                
+                WriteJournal();                                
             }
-            else if (option == 2)
+            else if (_option == 2)
             { 
-                displayJournal();                                       
+                DisplayJournal();                                       
             }
-            else if (option == 3)
+            else if (_option == 3)
             {
-                loadFile();                                                                 
+                LoadFile();                                                                 
             }
-            else if (option == 4)
+            else if (_option == 4)
             {
-                saveFile();                                                    
+                SaveFile();                                                    
             }
-        }while(option != 5);        
+        }while(_option != 5);        
     }
 
-    static void writeJournal()
+    static void WriteJournal()
     {
-        journal = new Journal();
-        journal.writeOption();
-        journalsList.Add(journal);
+        _journal = new Journal();
+        _journal.WriteOption();
+        _journalsList.Add(_journal);
     }
 
-    static void displayJournal()
+    static void DisplayJournal()
     {
-        foreach (Journal j in journalsList)
+        foreach (Journal j in _journalsList)
         {
             Console.WriteLine($"Date: {j._date} - Prompt: {j._prompt}");
             Console.WriteLine($"{j._answerPrompt}");
@@ -59,47 +59,47 @@ class Program
         }
     }
 
-    static void loadFile()
+    static void LoadFile()
     {
         Console.Write("What is the file name? ");
-        filename = Console.ReadLine(); 
-        if (File.Exists(filename))
+        _fileName = Console.ReadLine(); 
+        if (File.Exists(_fileName))
         { 
-            lines = System.IO.File.ReadAllLines(filename);
-            foreach (string line in lines)
+            _lines = System.IO.File.ReadAllLines(_fileName);
+            foreach (string line in _lines)
             {
                 string[] parts = line.Split(",");
-                journal = new Journal();
-                journal.readOption(journal, parts[0], parts[1], parts[2]);
-                journalsList.Add(journal);                    
+                _journal = new Journal();
+                _journal.ReadOption(_journal, parts[0], parts[1], parts[2]);
+                _journalsList.Add(_journal);                    
             }
             Console.WriteLine("File loaded successfully");
             Console.WriteLine("");                        
         }
         else
         {
-            Console.WriteLine($"The file: {filename} no exist, please check your input and try again");
+            Console.WriteLine($"The file: {_fileName} no exist, please check your input and try again");
             Console.WriteLine("");                        
         }
 
     }
 
-    static void saveFile()
+    static void SaveFile()
     {
         string r = "";
         Console.Write("What is the file name? ");
-        filename = Console.ReadLine();
-        if (File.Exists(filename))
+        _fileName = Console.ReadLine();
+        if (File.Exists(_fileName))
         {                    
             do
             {
-                Console.Write($"The file: {filename} already exist. Do you want to overwrite it Y/N? ");
+                Console.Write($"The file: {_fileName} already exist. Do you want to overwrite it Y/N? ");
                 r = Console.ReadLine();
                 if ( r.ToLower() == "y")
                 {
-                    using (StreamWriter outputFile = new StreamWriter(filename))
+                    using (StreamWriter outputFile = new StreamWriter(_fileName))
                     {                   
-                        foreach (Journal j in journalsList)
+                        foreach (Journal j in _journalsList)
                         {                        
                             outputFile.Write($"{j._date},");                        
                             outputFile.Write($"{j._prompt},");
@@ -126,9 +126,9 @@ class Program
         }
         else
         {                    
-            using (StreamWriter outputFile = new StreamWriter(filename))
+            using (StreamWriter outputFile = new StreamWriter(_fileName))
             {                   
-                foreach (Journal j in journalsList)
+                foreach (Journal j in _journalsList)
                 {                        
                     outputFile.Write($"{j._date},");                        
                     outputFile.Write($"{j._prompt},");
