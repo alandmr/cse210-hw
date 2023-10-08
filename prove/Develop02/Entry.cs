@@ -1,9 +1,27 @@
 using System;
 
-public class PromptsList
-{
-    int _rdPrompts = 0;
+public class Entry{
+    public string _date;
+    public DateTime _theCurrentTime = DateTime.Now;
+    public string _prompt;
+    public string _answerPrompt; 
+    public int _rdPrompts = 0;
 
+    public void SetEntry()
+    {
+        _prompt = DisplayPrompts();
+        Console.Write($"{_prompt}: ");
+        _answerPrompt = Console.ReadLine();
+        _date = _theCurrentTime.ToShortDateString();
+
+    }
+
+    public void GetEntry(string date, string promt, string answerPrompt)
+    {
+        _date = date;
+        _prompt = promt;
+        _answerPrompt = answerPrompt;
+    }
     public string DisplayPrompts()
     {
         Random rd = new Random();
