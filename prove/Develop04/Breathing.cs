@@ -2,7 +2,7 @@ using System;
 
 class Breathing : Mindfulness
 {  
-    private Breathing _breathing;
+    
     public Breathing()
     {        
         LoadBreathMessages();        
@@ -12,32 +12,31 @@ class Breathing : Mindfulness
         int time = 0;
 
         Console.Clear();
-        _breathing = new Breathing();
-        Console.WriteLine(_breathing.GetIntroMessage());
+        Console.WriteLine(GetIntroMessage());
         Console.WriteLine("");
-        Console.WriteLine(_breathing.GetDescriptionMessage());
+        Console.WriteLine(GetDescriptionMessage());
         Console.WriteLine("");
         Console.Write("How long, in seconds, would you like for you session? ");
         time = int.Parse(Console.ReadLine());
                     
         Console.Clear();
         Console.WriteLine("Get ready...");
-        _breathing.StartAnimation(4);                    
+        StartAnimation(4);                    
                     
         Console.WriteLine("");
         Console.WriteLine("");
                                         
-        _breathing.StartBreathingAnimation(time);                    
+        StartBreathingAnimation(time);                    
                     
         Console.WriteLine("");
 
         Console.WriteLine("Well done!!!");
-        _breathing.StartAnimation(4);
+        StartAnimation(4);
 
         Console.WriteLine("");
 
-        Console.WriteLine(_breathing.GetFinishingMessage());
-        _breathing.StartAnimation(5);
+        Console.WriteLine(GetFinishingMessage());
+        StartAnimation(5);
    }
 
    private void LoadBreathMessages()

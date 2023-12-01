@@ -7,7 +7,6 @@ class Reflection : Mindfulness
     private List<Reflection> _reflectingList = new List<Reflection>();
     private string _question;
     private bool _status;
-    private Reflection _reflection;
 
     public Reflection()
     {
@@ -22,31 +21,31 @@ class Reflection : Mindfulness
     public void StartReflection(){
         int time = 0;
         Console.Clear();
-        _reflection = new Reflection();
-        Console.WriteLine(_reflection.GetIntroMessage());
+        
+        Console.WriteLine(GetIntroMessage());
         Console.WriteLine("");
-        Console.WriteLine(_reflection.GetDescriptionMessage());
+        Console.WriteLine(GetDescriptionMessage());
         Console.WriteLine("");
         Console.Write("How long, in seconds, would you like for you session? ");
         time = int.Parse(Console.ReadLine());
                     
         Console.Clear();
         Console.WriteLine("Get ready...");
-        _reflection.StartAnimation(4);                    
+        StartAnimation(4);                    
                     
         Console.WriteLine("");
                                         
-        _reflection.StartReflectingActivity(time);           
+        StartReflectingActivity(time);           
                     
          Console.WriteLine("");
 
          Console.WriteLine("Well done!!!");
-         _reflection.StartAnimation(4);
+         StartAnimation(4);
 
          Console.WriteLine("");
 
-         Console.WriteLine(_reflection.GetFinishingMessage());
-         _reflection.StartAnimation(5);
+         Console.WriteLine(GetFinishingMessage());
+         StartAnimation(5);
     }
 
     private string GetQuestion()
