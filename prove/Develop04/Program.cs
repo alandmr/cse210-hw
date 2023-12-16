@@ -14,7 +14,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Mindfulness activity = new Mindfulness();
         string option;
 
         MainOptions();
@@ -24,17 +23,21 @@ class Program
             {
                 if (option == "1")
                 {
-                    activity.BreatheActivity();
+                    Breathing breaht = new Breathing();
+                    breaht.StartBreathe();
+                    
                 }
 
                 if (option == "2")
                 {
-                    activity.ReflectionActivity();
+                    Reflection reflection = new Reflection();
+                    reflection.StartReflection();
                 } 
 
                 if (option == "3")
                 {
-                    activity.ListingActivity();
+                    Listing listing = new Listing();
+                    listing.StartListing();
                 } 
             }
             else

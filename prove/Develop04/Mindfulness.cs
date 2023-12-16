@@ -9,22 +9,6 @@ class Mindfulness
     private List<string> _animationString = new List<string>();
     protected List<string> _fMessage = new List<string>();
 
-    public void BreatheActivity(){
-        Breathing breathe = new Breathing();
-        breathe.StartBreathe();
-
-    }
-
-    public void ListingActivity(){
-        Listing list = new Listing();
-        list.StartListing();
-    }
-
-    public void ReflectionActivity(){
-        Reflection reflection = new Reflection();
-        reflection.StartReflection();
-    }
-
     public string GetIntroMessage()
     {
         return this._introMessage;

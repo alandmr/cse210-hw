@@ -12,32 +12,31 @@ class Listing : Mindfulness
     public void StartListing(){
         int time = 0;
 
-        Console.Clear();
-        Listing listing = new Listing();
-        Console.WriteLine(listing.GetIntroMessage());
+        Console.Clear();        
+        Console.WriteLine(GetIntroMessage());
         Console.WriteLine("");
-        Console.WriteLine(listing.GetDescriptionMessage());
+        Console.WriteLine(GetDescriptionMessage());
         Console.WriteLine("");
         Console.Write("How long, in seconds, would you like for you session? ");
         time = int.Parse(Console.ReadLine());
                     
         Console.Clear();
         Console.WriteLine("Get ready...");
-        listing.StartAnimation(4);                    
+        StartAnimation(4);                    
                     
         Console.WriteLine("");
                                         
-        listing.StartListingAnimation(time);           
+        StartListingAnimation(time);           
                     
          Console.WriteLine("");
 
          Console.WriteLine("Well done!!!");
-         listing.StartAnimation(4);
+         StartAnimation(4);
 
          Console.WriteLine("");
 
-         Console.WriteLine(listing.GetFinishingMessage());
-         listing.StartAnimation(5);
+         Console.WriteLine(GetFinishingMessage());
+         StartAnimation(5);
     }
 
     private void LoadListingMessages()
